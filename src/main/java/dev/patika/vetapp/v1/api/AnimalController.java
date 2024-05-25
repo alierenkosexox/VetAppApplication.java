@@ -2,8 +2,9 @@ package dev.patika.vetapp.v1.api;
 
 import dev.patika.vetapp.v1.business.abstracts.AnimalService;
 import dev.patika.vetapp.v1.core.config.modelMapper.ModelMapperService;
+import dev.patika.vetapp.v1.core.result.Result;
 import dev.patika.vetapp.v1.core.result.ResultData;
-import dev.patika.vetapp.v1.core.utilites.ResulHelper;
+import dev.patika.vetapp.v1.core.utilites.ResultHelper;
 import dev.patika.vetapp.v1.dto.request.animal.AnimalSaveRequest;
 import dev.patika.vetapp.v1.dto.response.animal.AnimalResponse;
 import dev.patika.vetapp.v1.entities.Animal;
@@ -23,7 +24,7 @@ public class AnimalController {
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public ResultData<AnimalResponse> saveAnimal(@Valid @RequestBody AnimalSaveRequest animalSaveRequest){
-        return ResulHelper.CREATED(mapperService.forResponse().map(animalService.save(mapperService.forRequest().map(animalSaveRequest,Animal.class)),AnimalResponse.class));
+        return ResultHelper.CREATED(mapperService.forResponse().map(animalService.save(mapperService.forRequest().map(animalSaveRequest,Animal.class)),AnimalResponse.class));
     }
 
     @GetMapping("/{id}")

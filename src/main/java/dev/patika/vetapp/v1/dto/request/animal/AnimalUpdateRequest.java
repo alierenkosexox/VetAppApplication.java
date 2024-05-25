@@ -9,9 +9,12 @@ import lombok.NoArgsConstructor;
 import java.time.LocalDate;
 
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
-public class AnimalSaveRequest {
+@AllArgsConstructor
+public class AnimalUpdateRequest {
+    @NotNull(message = "Animal ID cannot be null.")
+    private long id; // ID of the animal
+
     @NotNull(message = "Animal name cannot be null.")
     private String name; // Name of the animal
 
@@ -33,3 +36,4 @@ public class AnimalSaveRequest {
     @NotNull(message = "Animal customer ID cannot be null.")
     private Customer customer; // ID of the customer who owns the animal
 }
+
