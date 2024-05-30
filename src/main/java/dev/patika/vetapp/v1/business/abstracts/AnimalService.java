@@ -5,13 +5,24 @@ import dev.patika.vetapp.v1.entities.Animal;
 import java.util.List;
 
 public interface AnimalService {
+
     Animal save(Animal animal);
+
 
     Animal update(Animal animal);
 
-    boolean delete(Long id);
 
-    List<Animal> getAll();
+    Animal getId(long id);
 
-    Animal getId(Long id);
+
+    List<Animal> getCustomerId(long animalCustomerId);
+
+
+    List<Animal> getAnimalByName(String name);
+
+
+    List<Animal> getCustomerName(String name);
+
+
+    boolean delete(long id);
 }
